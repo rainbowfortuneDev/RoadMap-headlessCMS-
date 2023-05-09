@@ -1,0 +1,19 @@
+@import '../../styles/theme';
+
+.category__search {
+  width: 30vw;
+  min-width: 300px;
+  border-radius: 18px;
+  border-color: transparent;
+  background-color: white;
+  .ant-select-selector {
+    border-radius: 18px;
+    border-color: transparent;
+  }
+  @media (max-width: $mobile-lg) and (min-width: 721px) {
+    width: 20vw;
+  }
+  @media (max-width: 695px) and (min-width: 561px) {
+    width: 15vw;
+  }
+}

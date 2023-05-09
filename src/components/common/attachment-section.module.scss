@@ -1,0 +1,37 @@
+@import '../../styles/theme';
+
+.postDetail__postAttachment_section {
+  background-color: #0844cc;
+  padding: 20px 30px;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &:hover {
+    box-shadow: 0px 0px 15px grey;
+    transform: scale(1.05);
+    transition: all 0.1s ease-in-out;
+  }
+
+  p {
+    color: white;
+    margin-top: 10px;
+  }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .postDetail__bottom_right_section {
+    margin-top: 60px;
+    margin-left: 0;
+  }
+}
+
+.postDetail__img_container {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

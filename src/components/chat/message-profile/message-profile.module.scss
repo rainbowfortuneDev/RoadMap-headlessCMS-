@@ -1,0 +1,74 @@
+.message-profile-container {
+  // height: 85vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: calc(100vh - 162px - 72px);
+  padding-top: 32px;
+
+  .basic-info-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: left;
+    .profile-pic {
+      border-radius: 50%;
+    }
+    .full-name {
+      margin-top: 12px;
+      margin-bottom: 8px;
+      color: #0844cc;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .profile-location-text {
+      font-size: 18px;
+      font-weight: 500;
+      opacity: 50%;
+      margin-bottom: 8px;
+    }
+    .status {
+      font-size: 16px;
+      line-height: 14px;
+      opacity: 50%;
+    }
+  }
+
+  .request-info {
+    margin-top: 48px;
+    display: grid;
+    justify-content: center;
+    gap: 16px;
+
+    p {
+      margin: 0;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21px;
+      letter-spacing: 0em;
+      text-align: center;
+      color: #787878;
+    }
+  }
+}
+
+.avatar {
+  color: #fff;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+
+  font-weight: 600;
+  font-size: xxx-large;
+
+  border-radius: 50%;
+  cursor: pointer;
+}

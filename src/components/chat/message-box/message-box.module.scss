@@ -1,0 +1,62 @@
+.message-box {
+  padding: 0 16px;
+  width: 100%;
+  margin-bottom: 16px;
+  position: relative;
+
+  // display: grid;
+  // grid-template-columns: 1fr;
+  // gap: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (max-width: 640px) {
+    padding: 0 16px;
+  }
+
+  .message-input-box {
+    display: flex;
+    align-items: center;
+    width: 97%;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    overflow: hidden;
+
+    .message-input {
+      font: inherit;
+      font-size: 16px;
+      width: 100%;
+      padding: 14px 10px;
+      border: 0;
+      resize: none;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .message-box-action-buttons {
+    position: absolute;
+    right: 38px;
+    display: flex;
+    align-items: center;
+  }
+
+  .message-action-box-file {
+    svg {
+      color: rgba(black, 0.4);
+    }
+  }
+
+  .message-action-box-send {
+    border-radius: 50%;
+    background-color: rgba(#0844cc, 0.15);
+    transform: scale(0.8);
+    svg {
+      color: #0844cc;
+      transform: rotate(320deg);
+    }
+  }
+}

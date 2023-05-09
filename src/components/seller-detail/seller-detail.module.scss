@@ -1,0 +1,99 @@
+@import '../../styles/theme';
+
+.sellerDetail {
+  --padding: 64px;
+
+  display: grid;
+
+  gap: calc(var(--padding) * 0.5);
+  grid-template-columns: var(--side-width) auto;
+  align-items: flex-start;
+
+  margin: 0 auto;
+  padding: calc(var(--padding) * 0.5) var(--padding) var(--padding);
+
+  max-width: var(--max-width);
+  min-height: calc(100vh - 72px);
+
+  @media (max-width: $mobile-md) {
+    --padding: 32px;
+
+    gap: var(--padding);
+
+    grid-template-columns: 1fr;
+  }
+  @media (max-width: $mobile-sm) {
+    --padding: 16px;
+
+    gap: calc(var(--padding) * 1.5);
+
+    padding: var(--padding);
+  }
+}
+
+.sellerDetail__content {
+  display: grid;
+
+  gap: calc(var(--padding) * 0.5);
+  align-items: flex-start;
+
+  max-width: 648px;
+
+  @media (max-width: $mobile-sm) {
+    gap: var(--padding);
+  }
+}
+
+.sellerDetail__contentTopRow {
+  display: grid;
+
+  gap: 8px;
+  grid-template-columns: auto max-content;
+  align-items: flex-start;
+
+  @media (max-width: $mobile-md) {
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+}
+
+.sellerDetail__sellerPosts_List_title {
+}
+.sellerDetail__newPostBtn {
+  background-color: transparent !important;
+  color: #0844cc !important;
+  font-weight: bold;
+}
+.sellerDetail__newPostIcon {
+  font-size: 35px;
+  border-radius: 50%;
+  background-color: rgba(8, 68, 204, 0.12);
+  margin-right: 5px;
+}
+.sellerDetail__postCard {
+  padding: 50px 0;
+}
+
+.sellerDetail__postby_with_newpost {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 50px;
+}
+
+@media (min-width: 320px) and (max-width: 620px) {
+  .sellerDetail__postCard {
+    padding: 50px 10px;
+  }
+}
+@media (min-width: 621px) and (max-width: 767px) {
+  .sellerDetail__postCard {
+    padding: 50px 25px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 959px) {
+  .sellerDetail__postCard {
+    padding: 50px 25px;
+  }
+}

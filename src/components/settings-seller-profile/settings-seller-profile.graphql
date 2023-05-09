@@ -1,0 +1,62 @@
+mutation SettingsSellerProfile__UpdateProfile_NU(
+  $user_id: bigint
+  $is_privacy_enabled: Boolean
+  $business_size: String
+  $business_name: String
+  $contact_address: String
+) {
+  update_users(
+    where: { id: { _eq: $user_id } }
+    _set: {
+      is_privacy_enabled: $is_privacy_enabled
+      business_size: $business_size
+      business_name: $business_name
+      contact_address: $contact_address
+    }
+  ) {
+    affected_rows
+    returning {
+      id
+      business_size
+      is_privacy_enabled
+    }
+  }
+}
+
+mutation SettingsSellerProfile__UpdateProfile(
+  $user_id: bigint!
+  $_set: users_set_input!
+) {
+  update_users_by_pk(_set: $_set, pk_columns: { id: $user_id }) {
+    id
+  }
+}
+
+mutation SettingsSellerProfile__UpdatePromotionalStatus(
+  $user_id: bigint
+  $promotion_status: smallint
+) {
+  update_posts(
+    where: { posted_by: { _eq: $user_id } }
+    _set: { promotion_status: $promotion_status }
+  ) {
+    affected_rows
+    returning {
+      promotion_status
+    }
+  }
+}
+
+mutation SettingsSellerProfile__GetStripeCustomerPortalLink($path: String) {
+  get_stripe_customer_portal_link(path: $path) {
+    link
+  }
+}
+
+query FetchBusinessSize {
+  business_sizes(order_by: { display_name: asc }) {
+    status
+    value
+    display_name
+  }
+}

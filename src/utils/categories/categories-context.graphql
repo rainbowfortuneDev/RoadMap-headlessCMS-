@@ -1,0 +1,11 @@
+query CategoriesContext__GetMe {
+  categories(order_by: { order: asc }) {
+    name
+    id
+    sub_categories {
+      name
+      id
+      category_id
+    }
+  }
+}

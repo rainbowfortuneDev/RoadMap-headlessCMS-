@@ -1,0 +1,33 @@
+@import '../../styles/theme';
+
+.mobileView__sm {
+  @media (min-width: $mobile-sm + 1px) {
+    display: none !important;
+  }
+}
+.mobileView__md {
+  @media (min-width: $mobile-md + 1px) {
+    display: none !important;
+  }
+}
+.mobileView__lg {
+  @media (min-width: $mobile-lg + 1px) {
+    display: none !important;
+  }
+}
+
+.mobileView__sm-inverse {
+  @media (max-width: $mobile-sm) {
+    display: none !important;
+  }
+}
+.mobileView__md-inverse {
+  @media (max-width: $mobile-md) {
+    display: none !important;
+  }
+}
+.mobileView__lg-inverse {
+  @media (max-width: $mobile-lg) {
+    display: none !important;
+  }
+}

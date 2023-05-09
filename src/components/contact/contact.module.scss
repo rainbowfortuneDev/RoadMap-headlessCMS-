@@ -1,0 +1,57 @@
+@import '../../styles/theme';
+
+.contact {
+  --padding: 64px;
+
+  display: flex;
+  position: relative;
+
+  padding: calc(var(--padding) * 0.5) var(--padding);
+
+  min-height: calc(100vh - 72px);
+
+  @media (max-width: $mobile-sm) {
+    --padding: 16px;
+
+    padding: var(--padding);
+  }
+}
+
+.contact__bg {
+  position: absolute;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  margin: calc(var(--padding) * -0.5) calc(var(--padding) * -1);
+
+  @media (max-width: $mobile-sm) {
+    margin: calc(var(--padding) * -1);
+  }
+}
+
+.contact__form {
+  display: grid;
+  position: relative;
+  z-index: 2;
+
+  gap: calc(var(--padding) * 0.5 * 0.75);
+
+  margin: auto;
+  padding: calc(var(--padding) * 0.5);
+
+  width: 100%;
+  max-width: $mobile-sm;
+
+  border-radius: 4px;
+
+  background-color: $color-background-paper;
+  box-shadow: $shade-md;
+
+  @media (max-width: $mobile-sm) {
+    gap: calc(var(--padding) * 0.75);
+
+    padding: var(--padding);
+  }
+}

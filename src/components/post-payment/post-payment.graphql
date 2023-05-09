@@ -1,0 +1,15 @@
+query BusinessSizesGql($businessSize: String) {
+  promotions(where: { business_size: { _eq: $businessSize } }) {
+    name
+    price
+    type
+  }
+}
+
+mutation CancelPaypalSubscriptionGql($sub_id: String!, $post_id: Int!) {
+  cancel_paypal_subscription(sub_id: $sub_id, post_id: $post_id)
+}
+
+mutation CancelStripeSubscriptionGql($sub_id: String!, $post_id: Int!) {
+  cancel_stripe_subscription(sub_id: $sub_id, post_id: $post_id)
+}

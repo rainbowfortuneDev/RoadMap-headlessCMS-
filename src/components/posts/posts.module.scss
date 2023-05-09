@@ -1,0 +1,148 @@
+@import '../../styles/theme';
+
+.posts {
+  --padding: 64px;
+
+  display: grid;
+
+  gap: calc(var(--padding) * 0.5);
+  grid-template-columns: var(--side-width) auto;
+  align-items: flex-start;
+
+  margin: 0 auto;
+  padding: calc(var(--padding) * 0.5) var(--padding) var(--padding);
+
+  min-height: calc(100vh - 72px);
+
+  @media (max-width: $mobile-md) {
+    --padding: 32px;
+
+    grid-template-columns: 1fr;
+  }
+  @media (max-width: $mobile-sm) {
+    --padding: 16px;
+  }
+}
+
+.filterIcon {
+  margin: 0px -10px;
+  @media (max-width: $mobile-sm) {
+    display: none !important;
+  }
+}
+
+.posts__aside {
+  display: grid;
+  width: 228px;
+  gap: 8px;
+  transition: all 0.5s ease-in-out;
+  padding-bottom: var(--padding);
+}
+.post__filter_text_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+.post__filter_text {
+  display: flex;
+  align-items: center;
+  span {
+    color: #000;
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 600;
+    margin-left: 10px;
+  }
+}
+
+.post__filter_hide {
+  transform: translate(-154px, 0);
+}
+
+.posts__category {
+  border-radius: 16px;
+  transition: all 0.25s;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
+}
+
+.post__content_wrapper {
+  padding: 100px 60px;
+}
+
+.posts__categoryActive {
+  background-color: var(--color-background-paper);
+  box-shadow: var(--shade-small);
+}
+
+.posts__categoryButtonInner {
+  display: grid;
+
+  gap: 4px;
+  grid-template-columns: auto 24px;
+  align-items: center;
+
+  width: 100%;
+
+  > * {
+    text-align: left;
+  }
+}
+
+.posts__categorySelectedCount {
+  color: var(--color-grey);
+}
+
+.posts__categoryExandedList {
+  padding: 0 8px 4px;
+}
+
+.posts__content {
+  display: grid;
+
+  gap: calc(var(--padding) * 0.5);
+}
+
+.posts__searchField {
+  input {
+    padding-right: 70px;
+  }
+}
+
+.posts__contentPostsGrid {
+  display: grid;
+
+  gap: calc(var(--padding) * 0.25);
+  grid-template-columns: repeat(auto-fill, minmax(613px, 1fr));
+
+  @media (max-width: $mobile-md) {
+    gap: calc(var(--padding) * 0.5);
+  }
+  @media (max-width: 420px) {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 500px) {
+  .post__content_wrapper {
+    padding: 50px 20px;
+  }
+}
+@media (min-width: 1036px) and (max-width: 1279px) {
+  .post__content_wrapper {
+    padding: 50px 20px;
+  }
+}
+/* 
+
+1. 500 page image not displaying correctly - $10
+2. setting-seller-profile.tsx -> Need to include try catch error messages - $10
+a. Updating address fails due to insufficient update permission. But users sees "Update successfully" message. - $20
+3. Home page is slow to load. Page does not change at all. So it should be static or cache for faster load - $40
+4. post_list page is little slow to load. - $50
+5. Add mail confirmation for new signing users. - $10
+6. Un-necessary re-rendering and refresh - $15
+7. fix post filters refreshing whole page - $25
+8. fix spacing on posts page - $0
+9. fix category filter dropdown - $10
+
+*/

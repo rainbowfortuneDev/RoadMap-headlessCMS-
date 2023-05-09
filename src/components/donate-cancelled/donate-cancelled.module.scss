@@ -1,0 +1,48 @@
+@import '../../styles/theme';
+
+.donateCancelled {
+  --padding: 64px;
+
+  display: grid;
+
+  grid-auto-flow: row;
+  justify-items: center;
+  align-content: center;
+
+  padding: calc(var(--padding) * 0.5) var(--padding);
+
+  min-height: calc(100vh - 72px);
+
+  @media (max-width: $mobile-md) {
+    --padding: 32px;
+  }
+  @media (max-width: $mobile-sm) {
+    --padding: 16px;
+  }
+}
+
+.donateCancelled__paper {
+  display: grid;
+
+  gap: calc(var(--padding) * 0.5 * 0.75);
+  grid-auto-flow: row;
+  justify-items: center;
+  align-content: flex-start;
+
+  margin: 0 auto;
+  padding: calc(var(--padding) * 0.5);
+
+  width: 100%;
+  max-width: 396px;
+
+  border-radius: 4px;
+
+  background-color: var(--color-background-paper);
+  box-shadow: var(--shade-small);
+
+  @media (max-width: $mobile-md) {
+    gap: var(--padding);
+
+    padding: var(--padding);
+  }
+}

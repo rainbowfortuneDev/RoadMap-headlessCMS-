@@ -1,0 +1,216 @@
+.profile-container {
+  display: grid;
+  align-items: center;
+  width: 100%;
+  padding: 24px 10px;
+  gap: 12px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  grid-template-columns: minmax(min-content, auto) minmax(min-content, 1fr) auto;
+  .profile-pic-wrapper {
+    .profile-pic {
+      border-radius: 50%;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    display: flex;
+    justify-content: center;
+
+    .profile-pic-wrapper {
+      div {
+        width: 45px !important;
+        height: 45px !important;
+      }
+    }
+  }
+
+  .profile-info {
+    span {
+      display: block;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      line-height: 23px;
+      letter-spacing: -0.01em;
+      text-align: left;
+
+      &:nth-child(1) {
+        color: black;
+        font-size: 15px;
+        margin-bottom: 4px;
+        font-weight: 500;
+      }
+      &:nth-child(2) {
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 13px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .last-date {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: -0.01em;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: minmax(min-content, auto) minmax(min-content, 1fr);
+
+    .last-date {
+      text-align: right;
+      grid-column-start: span 2;
+    }
+  }
+
+  //@media (max-width: 768px) {
+  //  padding: 12px 4px;
+  //  .profile-info,
+  //  .last-date {
+  //    display: none;
+  //  }
+  // }
+}
+
+.profile {
+  display: flex;
+  margin-bottom: 4px;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover {
+    background-color: #f7f7f7;
+    .profile__is__read {
+      display: flex;
+    }
+  }
+
+  //@media (max-width: 768px) {
+  // margin-bottom: 16px;
+  //padding: 0;
+  //  display: flex;
+  //  justify-content: center;
+  //  align-items: center;
+  //  transform: translateX(1px);
+  //  border-radius: 50%;
+  //}
+
+  &__img {
+    border-radius: 50%;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    @media screen and (max-width: 768px) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  &__info {
+    width: 80%;
+    margin-left: 12px;
+    display: flex;
+    flex-direction: column;
+    // @media (max-width: 768px) {
+    //  display: none;
+    //}
+    @media (min-width: 769px) and (max-width: 1096px) {
+      display: grid;
+    }
+
+    &__container {
+      display: flex;
+      width: 100%;
+    }
+  }
+  &__name {
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 20px;
+    color: #0844cc;
+    letter-spacing: -0.4px;
+  }
+  &__message {
+    font-weight: 500;
+    font-size: 14px;
+    opacity: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: -0.1px;
+  }
+  &__lastDay {
+    font-size: 12px;
+    margin-top: 1px;
+    font-weight: 500;
+    opacity: 50%;
+  }
+  &__active {
+    background-color: #ececec;
+    &:hover {
+      background-color: #ececec;
+    }
+  }
+  &__room {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__is {
+    &__unread {
+      font-size: 12px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+    }
+
+    &__read {
+      font-size: 12px;
+      font-weight: 500;
+      align-items: center;
+      display: none;
+      &:hover {
+        display: flex-end;
+      }
+    }
+  }
+}
+
+.message__unread__count {
+  color: #fff;
+  margin-right: 4px;
+  padding: 9px;
+  justify-content: center;
+  align-items: center;
+  width: 5px;
+  display: flex;
+  height: 5px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: small;
+}
+
+.avatar {
+  color: #fff;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+
+  font-weight: 600;
+  font-size: medium;
+
+  border-radius: 14px;
+  cursor: pointer;
+}

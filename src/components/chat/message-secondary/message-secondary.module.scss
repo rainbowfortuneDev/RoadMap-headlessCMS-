@@ -1,0 +1,59 @@
+.wrapper {
+  background: #fff;
+  height: 85vh;
+  border-right: 2px solid #e5dddd;
+  position: relative;
+}
+
+.input {
+  width: 90%;
+}
+
+.divider {
+  height: 28px;
+  margin: 4;
+}
+
+.message-box {
+  position: absolute;
+  bottom: 25px;
+  width: 100%;
+  display: flex;
+}
+
+.message-input {
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+
+.message-area {
+  margin-bottom: 50px;
+  margin-right: 5%;
+  overflow-y: auto;
+  height: 75vh;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.my-message-wrapper {
+  width: 60%;
+  padding: 1%;
+  align-self: flex-end;
+}
+
+.peer-message-wrapper {
+  width: 60%;
+  padding: 1%;
+  align-self: flex-end;
+}
+
+.my-message {
+  padding: 1%;
+}
+
+.peer-message {
+  background: #f9fbfd;
+}

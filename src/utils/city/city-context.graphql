@@ -1,0 +1,11 @@
+mutation CityContext__UpdateUserZipAndCity(
+  $user_id: bigint!
+  $zip_code_id: bigint!
+) {
+  update_users_by_pk(
+    _set: { zip_code_id: $zip_code_id }
+    pk_columns: { id: $user_id }
+  ) {
+    id
+  }
+}

@@ -1,0 +1,24 @@
+query CityChooser__SearchCities($term: String!) {
+  zip_codes(
+    limit: 5
+    where: {
+      _or: [
+        { zip_code: { _ilike: $term } }
+        { city: { name: { _ilike: $term } } }
+        { city: { state_code: { _ilike: $term } } }
+      ]
+    }
+  ) {
+    id
+    zip_code
+    latitude
+    longitude
+    city {
+      id
+      name
+      state_code
+      country_code
+      alt_id
+    }
+  }
+}

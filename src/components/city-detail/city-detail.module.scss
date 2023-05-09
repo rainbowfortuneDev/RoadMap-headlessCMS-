@@ -1,0 +1,193 @@
+@import '../../styles/theme';
+
+.cityDetail {
+  --padding: 64px;
+  position: relative;
+  @media (max-width: $mobile-sm) {
+    --padding: 16px;
+  }
+}
+
+.cityDetail__hero {
+  display: flex;
+  position: relative;
+
+  flex-direction: column;
+}
+
+.cityDetail__heroBg {
+  display: block;
+  position: absolute;
+  z-index: 1;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.cityDetail__heroOverlay {
+  position: relative;
+  z-index: 2;
+
+  background: radial-gradient(
+    83.12% 1331.22% at 16.88% 50.14%,
+    rgba(255, 255, 255, 0.84) 20.48%,
+    rgba(255, 255, 255, 0.5) 27.84%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  > div {
+    margin: 0 auto;
+    padding: var(--padding) var(--padding) calc(var(--padding) * 2);
+
+    max-width: var(--max-width);
+
+    > div {
+      display: grid;
+
+      gap: 24px;
+
+      max-width: 396px;
+    }
+  }
+
+  @media (max-width: $mobile-md) {
+    background: radial-gradient(
+      83.12% 1331.22% at 16.88% 50.14%,
+      rgba(255, 255, 255, 0.84) 20.48%,
+      rgba(255, 255, 255, 0.77) 27.84%,
+      rgba(255, 255, 255, 0.7) 100%
+    );
+  }
+}
+
+.cityDetail__content {
+  display: grid;
+  position: relative;
+  z-index: 3;
+
+  gap: var(--padding);
+
+  margin: calc(var(--padding) * -1) auto 0;
+  padding: 0 var(--padding) var(--padding);
+
+  max-width: var(--max-width);
+}
+
+.cityDetail__contentCategoriesList {
+  display: grid;
+
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(178px, 1fr));
+}
+
+.cityDetail__contentSignUpCard {
+  display: grid;
+
+  gap: 24px;
+  grid-template-columns: auto max-content;
+
+  padding: calc(var(--padding) * 0.5);
+
+  border-radius: 23px;
+
+  background-color: white;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  margin: 60px auto;
+
+  @media (max-width: $mobile-md) {
+    grid-template-columns: 1fr;
+
+    padding: calc(var(--padding) * 1);
+  }
+}
+
+.cityDetail__contentSignUpCardTextSection {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+.cityDetail__contentSignUpCardAvatar {
+  margin-right: 20px;
+}
+
+.cityDetail__contentSignUpCardButton {
+  margin: auto auto auto 0 !important;
+}
+.cityDetail__banner_section {
+  padding: 10px 50px;
+}
+// .cityDetail_bannerImg {
+//   img {
+//     min-width: 50% !important;
+//   }
+// }
+.cityDetail__banner_leftSection {
+  h1 {
+    font-size: 40px;
+    line-height: 60px;
+    color: black;
+  }
+  p {
+    font-size: 20px;
+    line-height: 30px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+.blob {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 50%;
+}
+.cityDetail__section_title {
+  padding: 40px 0;
+  text-align: center;
+  p {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    line-height: 30px;
+  }
+  h1 {
+    font-size: 30px;
+    line-height: 50px;
+    color: black;
+  }
+}
+.cityDetail__category_section {
+  padding-bottom: 50px;
+}
+@media (min-width: 320px) and (max-width: 599px) {
+  .cityDetail__banner_section {
+    padding: 10px;
+  }
+  .cityDetail__banner_leftSection {
+    p {
+      font-size: 20px;
+      line-height: 30px;
+    }
+    h1 {
+      font-size: 30px;
+      line-height: 50px;
+    }
+  }
+}
+@media (min-width: 600px) and (max-width: 959px) {
+  .cityDetail__banner_section {
+    padding: 30px 10px;
+  }
+  .cityDetail__banner_leftSection {
+    p {
+      font-size: 25px;
+      line-height: 30px;
+    }
+    h1 {
+      font-size: 35px;
+      line-height: 50px;
+    }
+  }
+}

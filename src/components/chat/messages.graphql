@@ -1,0 +1,235 @@
+query GetRoomsList($user_id: bigint) {
+  rooms(where: { user_rooms: { user_id: { _eq: $user_id } } }) {
+    id
+    user_rooms(where: { user_id: { _neq: $user_id } }) {
+      user {
+        email
+        full_name
+        business_name
+        is_privacy_enabled
+        avatar {
+          url
+        }
+        id
+        alt_id
+      }
+      room {
+        id
+        messages(limit: 1, order_by: { created_at: desc }) {
+          created_at
+          is_read
+          content
+          id
+          user {
+            id
+          }
+        }
+        messages_aggregate(where: { is_read: { _eq: false } }) {
+          aggregate {
+            count
+          }
+        }
+      }
+    }
+  }
+}
+
+query GetRoomForUser($my_id: bigint, $user_id: bigint) {
+  rooms(
+    where: {
+      _and: {
+        user_rooms: { user_id: { _eq: $my_id } }
+        _and: { user_rooms: { user_id: { _eq: $user_id } } }
+      }
+    }
+  ) {
+    id
+    user_rooms(where: { user_id: { _neq: $my_id } }) {
+      user {
+        email
+        full_name
+        business_name
+        is_privacy_enabled
+        avatar {
+          url
+        }
+      }
+      room {
+        id
+        messages(limit: 1, order_by: { created_at: desc }) {
+          created_at
+          content
+          is_read
+          id
+          user {
+            id
+          }
+        }
+      }
+    }
+  }
+}
+
+query getUser($user_id: bigint!) {
+  users_by_pk(id: $user_id) {
+    avatar {
+      url
+    }
+    full_name
+    business_name
+    is_privacy_enabled
+    posts {
+      price_range
+      promotion_status
+      years_of_experience
+      sub_category {
+        id
+        category {
+          id
+          name
+        }
+        name
+      }
+    }
+    zip_code {
+      zip_code
+      city {
+        name
+        id
+        alt_id
+        state_code
+      }
+    }
+  }
+}
+
+query getAltUser($user_id: bpchar!) {
+  users(where: { alt_id: { _eq: $user_id } }) {
+    id
+  }
+}
+
+subscription GetMessagesForRoom($room_id: bigint) {
+  messages(
+    where: { room_id: { _eq: $room_id } }
+    order_by: { created_at: desc }
+  ) {
+    id
+    alt_id
+    content
+    user {
+      id
+      alt_id
+    }
+    is_file
+    file {
+      name
+      url
+      type
+    }
+    created_at
+  }
+}
+mutation SendMessage(
+  $room_id: bigint
+  $user_id: bigint
+  $file_id: bigint
+  $content: String
+  $is_file: Boolean = false
+) {
+  insert_messages(
+    objects: {
+      user_id: $user_id
+      content: $content
+      room_id: $room_id
+      file_id: $file_id
+      is_file: $is_file
+    }
+  ) {
+    returning {
+      id
+      content
+      is_file
+      file {
+        name
+        url
+      }
+      user {
+        id
+        alt_id
+      }
+      created_at
+    }
+  }
+}
+
+mutation CreateRoomForUser($my_id: bigint, $user_id: bigint) {
+  insert_rooms(
+    objects: {
+      user_rooms: {
+        data: [{ user_id: $my_id }, { user_id: $user_id }]
+        on_conflict: { constraint: user_rooms_pkey }
+      }
+    }
+    on_conflict: { constraint: rooms_pkey }
+  ) {
+    returning {
+      id
+      user_rooms(where: { user_id: { _neq: $my_id } }) {
+        user {
+          email
+          full_name
+          business_name
+          is_privacy_enabled
+          avatar {
+            url
+          }
+        }
+        room {
+          id
+          messages(limit: 1, order_by: { created_at: desc }) {
+            created_at
+            content
+            is_read
+            id
+            user {
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+mutation UpdateMessage($message_id: bigint!, $is_read: Boolean) {
+  update_messages(
+    _set: { is_read: $is_read }
+    where: { id: { _eq: $message_id } }
+  ) {
+    affected_rows
+    affected_rows
+    returning {
+      id
+    }
+  }
+}
+
+mutation UpdateMessages($user_id: bigint!, $is_read: Boolean) {
+  update_messages(
+    _set: { is_read: $is_read }
+    where: {
+      room: {
+        user_rooms: {
+          room: { user_rooms: { user_id: { _eq: $user_id } } }
+          user: { user_rooms: { user_id: { _neq: $user_id } } }
+        }
+      }
+    }
+  ) {
+    affected_rows
+    returning {
+      is_read
+    }
+  }
+}

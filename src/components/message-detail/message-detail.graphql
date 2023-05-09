@@ -1,0 +1,5 @@
+subscription userOnline($id: bigint!) {
+  users_by_pk(id: $id) {
+    last_seen
+  }
+}

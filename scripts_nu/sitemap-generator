@@ -1,0 +1,43 @@
+const fs = require('fs')
+const globby = require('globby')
+function addPage(page) {
+  const path = page.replace('pages', '').replace('.tsx', '').replace('.mdx', '')
+  const route = path === '/index' ? '' : path
+  return `  <url>
+    <loc>${`${process.env.NEXT_PUBLIC_BASE_URL}${route}`}</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>`
+}
+
+async function generateSitemap() {
+  // excludes Nextjs files and API routes.
+  const pages = await globby([
+    'pages/**/*{.tsx,.mdx}',
+    '!pages/_*.tsx',
+    '!pages/api',
+    '!pages/donate',
+    '!pages/settings',
+    '!pages/404.tsx',
+    '!pages/500.tsx',
+    '!pages/contact.tsx',
+    '!pages/forgot-password.tsx',
+    '!pages/login.tsx',
+    '!pages/message',
+    '!pages/messages.tsx',
+    '!pages/sign-up.tsx',
+    '!pages/terms.tsx',
+    '!pages/privacy.tsx',
+    '!pages/login.tsx',
+    '!pages/post/payment',
+    '!pages/post/new.tsx',
+    '!pages/post/edit',
+  ])
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${pages.map(addPage).join('\n')}
+</urlset>`
+  fs.writeFileSync('public/sitemap.xml', sitemap)
+}
+generateSitemap()

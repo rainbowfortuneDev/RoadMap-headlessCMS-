@@ -1,0 +1,89 @@
+query PostNew__previousPostsCount($user_id: bigint!) {
+  posts_aggregate(where: { posted_by: { _eq: $user_id } }) {
+    aggregate {
+      count
+    }
+  }
+}
+
+query PostNew__previousPosts($user_id: bigint!) {
+  posts(where: { _and: { posted_by: { _eq: $user_id } } }) {
+    id
+    title
+    sub_category_id
+  }
+}
+
+mutation PostNew__insertPost(
+  $sub_category_id: bigint!
+  $title: String!
+  $detail: String!
+  $price_range: _int4!
+  $price_description: String
+  $years_of_experience: smallint
+  $promotion_status: smallint
+  $post_attachments: [post_attachments_insert_input!]!
+) {
+  insert_posts(
+    objects: {
+      sub_category_id: $sub_category_id
+      title: $title
+      detail: $detail
+      price_range: $price_range
+      price_description: $price_description
+      years_of_experience: $years_of_experience
+      promotion_status: $promotion_status
+      post_attachments: { data: $post_attachments }
+    }
+  ) {
+    returning {
+      id
+      alt_id
+      title
+    }
+  }
+}
+
+mutation PostNew__insertPostAttribute(
+  $sub_category_id: bigint!
+  $title: String!
+  $detail: String!
+  $price_range: _int4!
+  $price_description: String
+  $years_of_experience: smallint
+  $promotion_status: smallint
+  $post_attachments: [post_attachments_insert_input!]!
+  $post_attribute: post_attributes_insert_input!
+) {
+  insert_posts(
+    objects: {
+      sub_category_id: $sub_category_id
+      title: $title
+      detail: $detail
+      price_range: $price_range
+      price_description: $price_description
+      years_of_experience: $years_of_experience
+      promotion_status: $promotion_status
+      post_attachments: { data: $post_attachments }
+      post_attribute: { data: $post_attribute }
+    }
+  ) {
+    returning {
+      id
+      alt_id
+      title
+    }
+  }
+}
+
+mutation PostNew__GetStripeCustomerPortalLink(
+  $post_id: bigint!
+  $updated_post_is_local: Boolean!
+) {
+  checkout_or_manage_post_payment(
+    post_id: $post_id
+    updated_post_is_local: $updated_post_is_local
+  ) {
+    url
+  }
+}

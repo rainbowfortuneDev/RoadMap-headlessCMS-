@@ -1,0 +1,48 @@
+mutation PostCard__updatePost($post_id: bigint!, $promotion_status: smallint!) {
+  update_posts(
+    where: { id: { _eq: $post_id } }
+    _set: { promotion_status: $promotion_status }
+  ) {
+    affected_rows
+    returning {
+      id
+    }
+  }
+}
+
+mutation PostCard__deletePost($post_id: bigint!) {
+  delete_post_attachments(where: { post_id: { _eq: $post_id } }) {
+    affected_rows
+    returning {
+      post_id
+    }
+  }
+
+  delete_post_attributes(where: { post_id: { _eq: $post_id } }) {
+    affected_rows
+    returning {
+      post_id
+    }
+  }
+
+  delete_payments(where: { post_id: { _eq: $post_id } }) {
+    affected_rows
+    returning {
+      post_id
+    }
+  }
+
+  delete_all_posts(where: { post_id: { _eq: $post_id } }) {
+    affected_rows
+    returning {
+      post_id
+    }
+  }
+
+  delete_posts(where: { id: { _eq: $post_id } }) {
+    affected_rows
+    returning {
+      id
+    }
+  }
+}

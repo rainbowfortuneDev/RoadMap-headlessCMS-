@@ -1,0 +1,28 @@
+@import '../../styles/theme';
+
+.terms {
+  --padding: 64px;
+
+  min-height: calc(100vh - 72px);
+
+  background-color: white;
+
+  @media (max-width: $mobile-md) {
+    --padding: 32px;
+  }
+
+  @media (max-width: $mobile-md) {
+    --padding: 16px;
+  }
+}
+
+.terms__content {
+  margin: 0 auto;
+  padding: calc(var(--padding) * 0.5) var(--padding);
+
+  max-width: 840px;
+
+  @media (max-width: $mobile-md) {
+    padding: var(--padding);
+  }
+}

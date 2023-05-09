@@ -1,0 +1,404 @@
+@import '../../../styles/theme';
+
+.sellerCard {
+  --padding: 24px;
+
+  display: grid;
+
+  gap: var(--padding);
+  justify-items: center;
+
+  padding: var(--padding);
+
+  border-radius: 4px;
+
+  text-align: centers;
+
+  background-color: var(--color-background-paper);
+  box-shadow: var(--shade-small);
+
+  @media (max-width: $mobile-md) {
+    --padding: 12px;
+  }
+}
+.sellerCard__top {
+  display: grid;
+
+  gap: var(--padding);
+  align-items: center;
+  justify-items: center;
+
+  width: 100%;
+
+  @media (max-width: $mobile-md) {
+    gap: var(--padding);
+    grid-template-columns: max-content auto;
+    justify-items: left;
+  }
+}
+
+.sellerCard__avatar {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  > * {
+    cursor: pointer;
+  }
+  @media (max-width: $mobile-md) {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+.sellerCard__titles {
+  display: grid;
+
+  gap: 8px;
+  justify-items: center;
+
+  @media (max-width: $mobile-md) {
+    gap: 0;
+    justify-items: left;
+
+    text-align: left;
+  }
+}
+
+.sellerCard__infoList {
+  display: grid;
+
+  gap: 8px;
+  justify-items: center;
+
+  width: 100%;
+}
+
+.sellerCard__infoItem {
+  display: grid;
+
+  gap: 8px;
+  grid-template-columns: max-content auto;
+
+  width: 100%;
+}
+
+.sellerCard__upper_section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgb(255, 239, 223);
+  border-radius: 23px;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  margin: 60px auto;
+}
+.sellerCard_user_info_promotion_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+.sellerCard_user_info_text {
+  a {
+    font-size: 35px !important;
+    line-height: 53px !important;
+    color: #000000;
+  }
+}
+.sellerCard_info_section {
+  width: 100%;
+  padding-left: 20px;
+}
+.sellerCard_user_name_text {
+  font-size: 20px !important;
+  list-style: 30px !important;
+}
+.sellerCard_user_address_price_msg_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.postCard__location_price_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  .postCard__location_wrapper,
+  .postCard__price_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .postCard__location_wrapper {
+    margin-left: 30px;
+  }
+  .postCard__location_svg_wrapper,
+  .postCard__price_svg_wrapper {
+    width: 32px;
+    height: 42px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+  }
+
+  .postCard__location_svg_wrapper {
+    color: rgba(55, 225, 100, 0.2);
+  }
+  .postCard__price_svg_wrapper {
+    background-color: rgba(252, 124, 124, 0.2);
+  }
+}
+.postCard__promotionStatus {
+  display: flex;
+  align-items: center;
+  img {
+    object-fit: contain;
+  }
+  .postCard_badge_sponsored {
+    padding: 10px 30px;
+    background-color: #ffe9bc;
+    border-radius: 17px;
+    span {
+      color: #cc0808;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 27px;
+    }
+  }
+  .postCard_badge_subscribed {
+    padding: 10px 30px;
+    background-color: #67daf8;
+    border-radius: 17px;
+    span {
+      color: #5387ff;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 27px;
+    }
+  }
+  .postCard_badge_national {
+    padding: 10px 30px;
+    background-color: #b6e5c6;
+    border-radius: 17px;
+    span {
+      color: #3bac59;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 27px;
+    }
+  }
+}
+.sellerCard_promotion_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  .sellerCard__promotionImg {
+    position: absolute;
+    left: -45px;
+    top: -10px;
+  }
+}
+.postCard__colorTextSecondary {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+}
+.sellerCard_msgbtn {
+  a {
+    color: white;
+    padding: 15px 30px;
+    border-radius: 17px;
+    background-color: #0844cc;
+    &:hover {
+      color: white;
+      background-color: #0844cc;
+    }
+  }
+}
+.sellerCard__imageHolder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sellerCard__chip {
+  display: flex;
+  span {
+    border: none;
+    cursor: default;
+    height: 32px;
+    display: inline-flex;
+    outline: 0;
+    padding: 0;
+    font-size: 0.8125rem;
+    box-sizing: border-box;
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+      box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    align-items: center;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    white-space: nowrap;
+    border-radius: 9px;
+    vertical-align: middle;
+    justify-content: center;
+    text-decoration: none;
+    background-color: rgba(149, 124, 252, 0.2);
+    color: #0844cc;
+    padding: 15px;
+    margin-right: 10px;
+  }
+}
+
+.postCard__location_wrapper {
+  margin-left: 30px;
+}
+.postCard__location_svg_wrapper,
+.postCard__price_svg_wrapper,
+.postCard__yearxp_svg_wrapper,
+.postCard__price_desc_svg_wrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  color: currentColor;
+}
+
+.postCard__location_svg_wrapper {
+  background-color: rgba(55, 225, 100, 0.2);
+  color: #3bac59;
+}
+
+@media (min-width: 320px) and (max-width: 620px) {
+  .sellerCard__upper_section {
+    padding: 5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .sellerCard_user_info_text {
+    a {
+      font-size: 20px !important;
+      line-height: 20px !important;
+    }
+  }
+  .sellerCard_info_section {
+    padding: 10px;
+  }
+  .postCard__colorTextSecondary {
+    font-size: 14px;
+  }
+  .sellerCard_user_address_price_msg_wrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .sellerCard__imageHolder {
+    width: 80%;
+    height: 80%;
+    padding: 20px;
+  }
+}
+@media (min-width: 501px) and (max-width: 620px) {
+  .sellerCard__upper_section {
+    padding: 5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .sellerCard_user_info_promotion_wrapper {
+    justify-content: center;
+  }
+  .sellerCard__chip {
+    justify-content: center;
+  }
+  .sellerCard_user_info_text {
+    a {
+      font-size: 20px !important;
+      line-height: 20px !important;
+    }
+  }
+  .sellerCard_info_section {
+    padding: 10px;
+  }
+  .postCard__colorTextSecondary {
+    font-size: 14px;
+  }
+  .sellerCard_user_address_price_msg_wrapper {
+    gap: 15px;
+  }
+  .sellerCard__imageHolder {
+    width: 80%;
+    height: 80%;
+    padding: 20px;
+  }
+}
+@media (min-width: 621px) and (max-width: 767px) {
+  .sellerCard__upper_section {
+    padding: 5px;
+  }
+  .sellerCard_user_info_text {
+    a {
+      font-size: 20px !important;
+      line-height: 20px !important;
+    }
+  }
+  .postCard__chatlink {
+    margin-left: 15px;
+  }
+  .sellerCard_info_section {
+    padding: 10px;
+  }
+  .postCard__colorTextSecondary {
+    font-size: 14px;
+  }
+  .sellerCard_user_address_price_msg_wrapper {
+    gap: 15px;
+  }
+  .sellerCard__imageHolder {
+    width: 80%;
+    height: 80%;
+    padding: 20px;
+  }
+}
+
+.postCard__chatmsg {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-top: 20px;
+  .MuiInputBase-input {
+    display: none !important;
+  }
+}
+
+.postCard__chatlink {
+  padding: 12px 20px;
+  background-color: #0844cc;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 35px;
+  cursor: pointer;
+}
+
+.avatar {
+  color: #fff;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 200px;
+  width: 200px;
+
+  font-weight: 600;
+  font-size: xxx-large;
+
+  border-radius: 14px;
+  cursor: pointer;
+}

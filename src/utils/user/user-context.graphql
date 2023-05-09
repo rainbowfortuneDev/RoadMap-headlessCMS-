@@ -1,0 +1,42 @@
+query UserContext__GetMe($firebase_uid: String!) {
+  meArray: users(limit: 1, where: { firebase_uid: { _eq: $firebase_uid } }) {
+    id
+    alt_id
+    full_name
+    is_privacy_enabled
+    firebase_uid
+    email
+    phone
+    contact_address
+    posts {
+      promotion_status
+    }
+    avatar {
+      id
+      url
+    }
+    zip_code {
+      id
+      zip_code
+      latitude
+      longitude
+      city {
+        id
+        name
+        state_code
+        country_code
+        alt_id
+      }
+    }
+    business_size
+    business_name
+    contact_address
+    is_privacy_enabled
+  }
+}
+
+mutation UserContext__UpdateLastSeen($id: bigint!) {
+  update_users_by_pk(pk_columns: { id: $id }, _set: { last_seen: "now()" }) {
+    last_seen
+  }
+}
